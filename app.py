@@ -1,8 +1,10 @@
 from flask import Flask
 app = Flask(__name__)
-@app.route("/")
-@app.route("/hello")
-def hello_world():
-	return "hello,world!"
+@app.route("/name/<name>")
+def index(name):
+	if name.lower()=="preethi":
+		return "HELLO,{}".format(name)
+	else:
+		return "NOT FOUND",404
 if __name__=="__main__":
 	app.run()
